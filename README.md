@@ -1,4 +1,4 @@
-## react-boilerplate-with-hygen
+## react-component-template-hygen
 
 ### hygen
 
