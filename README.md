@@ -1,36 +1,38 @@
 ## react-boilerplate-with-hygen
 
-## hygen
+### hygen
+
+https://www.hygen.io/
 
 hygen은 fs-extra와 같은 npm 패키지를 기반으로 파일 시스템에
 접근하여 생성해둔 템플릿을 기반으로 파일을 추가하는 작업을 자동화할 수 있도록 도와주는 도구이다.
+리엑트 프로젝트에서 반복적으로 사용되는 템플릿이나, 파일 작성에 대한 팀 컨벤션을 템플릿에 가시적으로 
+담아낼 수 있으며, 생산성 또한 향상시킬 수 있다.
 
-리엑트 프로젝트에서 반복적으로 사용되는 템플릿 생성을 자동화하여
-약속된 컨벤션을 유지하며 파일을 생성할 수 있으며, 생산성을 향상시킬 수 있다.
-
-## install
+### install
 
 ```shell
 ~$ yarn global add hygen
 ```
 
-## init
-
-hygen을 init하여 프로젝트 루트에 `/_templates` 디렉토리를 생성한다.
-(직접 폴더를 생성해도 무관하다.)
+### init
 
 ```shell
 ~$ hygen init self
 ```
 
-## init template
+### init template
 
-`/_templates/generator/new/hello.ejs.t`의 파일은 다음과 같이 구성되어 있다.
+시작부는 파일이 생성될 위치를 정의하며, 본문은 생성될 파일 안에 들어갈 본문이다.
+템플릿은 ejs 문법을 사용하여 `<%= name %>`의 형식으로 명령 인자값이나, 프롬프트로부터 값을 전달받아
+구문에 변수값을 전달할 수 있다.
 
 ````ejs.t
+<!-- 시작부 -->
 ---
 to: _templates/<%= name %>/<%= action || 'new' %>/hello.ejs.t
 ---
+<!-- 템플릿 -->
 ---
 to: app/hello.js
 ---
@@ -46,16 +48,11 @@ https://github.com/jondot/hygen
 console.log(hello)
 ````
 
-시작부는 파일이 생성될 위치를 정의하며, 본문은 생성될 파일 안에 들어갈 본문이다.
-템플릿은 ejs 문법을 사용하여 `<%= name %>`의 형식으로 프롬프트로부터 값을 전달받아 구문을 생성할 수 있다.
-
 ```shell
 ~$ hygen generator new --name test --action task
 ```
 
-## new-component generator
-
-컴포넌트 초기 파일 구성을 생성하는 템플릿을 만들어보자.
+### new-component generator
 
 ```ejs.t
 // _templates/generator/new-component-index.ejs.t
@@ -90,7 +87,7 @@ export default <%= componentName %>
 ~$ hygen generator new-component --componentName Test --componentElement div --domain main
 ```
 
-## hygen prompt
+### hygen prompt
 
 hygen은 CLI 상호 작용을 지원하는 enquirer를 내장하고 있다.
 프롬프트를 통해 템플릿에 전달해야 하는 값들을 입력받을 수 있는
@@ -139,6 +136,6 @@ module.exports = {
 ~$ yarn create-component
 ```
 
-## Reference
+### Reference
 
 [Hygen을 이용한 컴포넌트 템플릿 만들기](https://techblog.woowahan.com/8268/)
