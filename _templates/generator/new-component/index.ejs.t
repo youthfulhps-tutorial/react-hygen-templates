@@ -1,5 +1,5 @@
 ---
-to: src/components/<%= domain %>/<%= componentName %>.tsx
+to: src/<%= componentFeature %>/components/<%= componentName %>/index.tsx
 ---
 import React from 'react';
 import styled from 'styled-components';
