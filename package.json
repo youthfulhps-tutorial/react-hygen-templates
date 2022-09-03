@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "create-component": "hygen generator new-component with-prompt"
+    "create-component": "yarn hygen generator new-component with-prompt"
   },
   "dependencies": {
     "next": "12.1.6",
@@ -16,6 +16,8 @@
   },
   "devDependencies": {
     "eslint": "8.18.0",
-    "eslint-config-next": "12.1.6"
+    "eslint-config-next": "12.1.6",
+    "fs": "^0.0.1-security",
+    "hygen": "^6.2.8"
   }
 }
